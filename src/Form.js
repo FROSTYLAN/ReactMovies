@@ -34,7 +34,7 @@ export default function Form(props) {
   const { movie } = props;
 
   return (
-    <StyledForm>
+    <StyledForm onMouseEnter={() => props.updateTheme()}>
       <h3>{movie.name}</h3>
       <StyledButton
         type="button"

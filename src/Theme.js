@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./GlobalStyle";
 
 const themes = {
   avengers: {
@@ -14,5 +15,8 @@ const themes = {
 };
 
 export const Theme = (props) => (
-  <ThemeProvider theme={themes["avengers"]}>{props.children}</ThemeProvider>
+  <ThemeProvider theme={themes[props.theme.toLowerCase()]}>
+    <GlobalStyle />
+    {props.children}
+  </ThemeProvider>
 );

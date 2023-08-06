@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Title } from "./Title";
 import { Theme } from "./Theme";
 import Form from "./Form";
@@ -15,11 +15,13 @@ const movies = [
 ];
 
 export default function App() {
+  const [theme, setTheme] = useState("avengers");
+
   return (
-    <Theme>
+    <Theme theme={theme}>
       <Title>Películas</Title>
       {movies.map((movie) => (
-        <Form movie={movie} />
+        <Form movie={movie} updateTheme={() => setTheme(movie.name)} />
       ))}
     </Theme>
   );
